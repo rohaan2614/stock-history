@@ -9,21 +9,23 @@ print('Check Paths:\n' + '\tBASE PATH: ' + PATH_BASE + '\n\tCOMPRESSED PATH: ' +
 
 print('Processing Dir:')
 for dir in sorted(os.listdir(PATH_COMPRESSED)):
-    print(dir)
+    if os.path.isdir(PATH_COMPRESSED + dir) :
+        print(dir)
+        
+        for file in sorted(os.listdir(os.path.join(PATH_COMPRESSED, dir))):
+            print('  ' + file)
     
-    
-    for file in [doc for doc in sorted(os.listdir(os.path.join(PATH_COMPRESSED, dir))) if doc.endswith('.txt')]:
-        print('\t' + file)
+            src_path = PATH_COMPRESSED + dir + '/' + file
+            dest_path = PATH_DECOMPRESSED + dir + '/' + file
+
+            # print (src_path)
             
-        src_path = PATH_COMPRESSED + dir + '/' + file
-        dest_path = PATH_DECOMPRESSED + dir + '/' + file
+            # with open(src_path, 'rb') as compressed_file:
+            #     compressed_data = compressed_file.read()
+            #     # print(compressed_data)
 
-        with open(src_path, 'rb') as compressed_file:
-            compressed_data = compressed_file.read()
-            # print(compressed_data)
+            # decompressed_data = zlib.decompress(compressed_data)
 
-        decompressed_data = zlib.decompress(compressed_data)
-
-        with open(dest_path, 'wb') as decompressed_file:
-            decompressed_file.write(decompressed_data)
-            
+        #     with open(dest_path, 'wb') as decompressed_file:
+        #         decompressed_file.write(decompressed_data)
+                
