@@ -18,14 +18,16 @@ for dir in sorted(os.listdir(PATH_COMPRESSED)):
             src_path = PATH_COMPRESSED + dir + '/' + file
             dest_path = PATH_DECOMPRESSED + dir + '/' + file
 
-            # print (src_path)
             
-            # with open(src_path, 'rb') as compressed_file:
-            #     compressed_data = compressed_file.read()
-            #     # print(compressed_data)
+            try:
+                with open(src_path, 'rb') as compressed_file:
+                    compressed_data = compressed_file.read()
 
-            # decompressed_data = zlib.decompress(compressed_data)
+                decompressed_data = zlib.decompress(compressed_data)
 
-        #     with open(dest_path, 'wb') as decompressed_file:
-        #         decompressed_file.write(decompressed_data)
+                with open(dest_path, 'wb') as decompressed_file:
+                    decompressed_file.write(decompressed_data)
+
+            except zlib.error as e:
+                print(f"Error decompressing file {file}: {e}")
                 
