@@ -1,4 +1,17 @@
-# live-stock-history
+# repo problem
+
+I tried to several methods to decompress this repo but all of them failed with the following error:
+
+`decompressing data: incorrect header check`
+
+Let me know if you are able to get past this. The problem might be:
+1. Corrupted files
+2. Incorrect/inaccurate compression info by the original author.
+
+
+# original readme
+
+## live-stock-history
 A home for archived live data. This is data that is often not saved afterwards like bid/ask. 
 
 As of right now, this data only comes from TD Ameritrade. With this, I can only get data for U.S. stocks. For evey $750 in sponsors, another country will be added (Not all listings, just support for that country). 
